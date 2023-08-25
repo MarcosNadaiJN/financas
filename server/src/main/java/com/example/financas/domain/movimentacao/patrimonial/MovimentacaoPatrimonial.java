@@ -1,15 +1,18 @@
-package com.example.financas.domain;
+package com.example.financas.domain.movimentacao.patrimonial;
 
-import jakarta.persistence.Entity;
+import com.example.financas.domain.formapagamento.FormaDePagamento;
+import com.example.financas.domain.Produto;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,21 +24,16 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-@Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Table(name = "compra")
-public class Compra implements Serializable {
+@MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class MovimentacaoPatrimonial implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gen_sequence_compra")
-    @SequenceGenerator(name = "gen_sequence_compra", sequenceName = "sequence_compra")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gen_sequence_movpat")
+    @SequenceGenerator(name = "gen_sequence_movpat", sequenceName = "sequence_movpat")
     private UUID id;
-
-    @ManyToOne
-    @JoinColumn(name = "fornecedor_id")
-    @NotNull
-    private Pessoa fornecedor;
 
     @NotNull
     private BigDecimal valorTotal = BigDecimal.ZERO;
@@ -51,10 +49,6 @@ public class Compra implements Serializable {
     @ManyToMany
     @JoinTable(name = "produtos_id")
     private List<Produto> produtos;
-
-    @ManyToMany
-    @JoinColumn(name = "contaapagar_id")
-    private List<ContasAPagar> contasAPagar;
 
     private String descricao;
 }
