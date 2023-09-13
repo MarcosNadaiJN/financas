@@ -1,15 +1,14 @@
 package com.example.financas.domain.pessoa;
 
-import com.example.financas.domain.pessoa.tipo.TipoPessoa;
+import com.example.financas.domain.TipoPessoaEnum;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -28,16 +27,27 @@ public abstract class Pessoa {
     @SequenceGenerator(name = "gen_sequence_pessoa", sequenceName = "sequence_pessoa")
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "tipopessoa_id")
-    private TipoPessoa tipoPessoa;
+    @NotNull
+    private TipoPessoaEnum tipoPessoa;
+
+    @NotNull
+    private String cpfCnpj;
+
+    @NotNull
+    private String nomeRazaoSocial;
+
+    private String nomeFantasia;
+
+    private String sexo;
 
     private String telefone;
 
     private String email;
 
+    @NotNull
     private String uf;
 
+    @NotNull
     private String cidade;
 
     private String cep;
