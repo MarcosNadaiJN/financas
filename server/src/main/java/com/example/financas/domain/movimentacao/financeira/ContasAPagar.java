@@ -25,6 +25,7 @@ public class ContasAPagar extends MovimentacaoFinanceira implements Serializable
     @JoinColumn(name = "fornecedor_id")
     private Pessoa fornecedor;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "compraorigem_id")
     private Compra compraOrigem;
