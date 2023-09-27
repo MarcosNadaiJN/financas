@@ -1,6 +1,6 @@
 package com.example.financas.domain.pessoa;
 
-import com.example.financas.domain.TipoPessoaEnum;
+import com.example.financas.domain.enums.TipoPessoaEnum;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;

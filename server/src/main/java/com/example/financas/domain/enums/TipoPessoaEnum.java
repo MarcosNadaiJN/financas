@@ -1,4 +1,4 @@
-package com.example.financas.domain;
+package com.example.financas.domain.enums;
 
 public enum TipoPessoaEnum {
 

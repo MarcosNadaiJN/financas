@@ -1,4 +1,4 @@
 package com.example.financas.domain;
 
-public class ContasBancarias {
+public class Categoria {
 }

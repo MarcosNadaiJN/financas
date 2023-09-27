@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -27,7 +28,6 @@ public class Compra extends MovimentacaoPatrimonial implements Serializable {
     @JoinColumn(name = "fornecedor_id")
     private Pessoa fornecedor;
 
-    @ManyToMany
-    @JoinColumn(name = "contaapagar_id")
+    @OneToMany(mappedBy = "compra")
     private List<ContasAPagar> contasAPagar;
 }
