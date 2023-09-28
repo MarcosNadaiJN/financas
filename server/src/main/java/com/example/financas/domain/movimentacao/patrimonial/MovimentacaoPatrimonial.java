@@ -1,7 +1,7 @@
 package com.example.financas.domain.movimentacao.patrimonial;
 
 import com.example.financas.domain.formapagamento.FormaDePagamento;
-import com.example.financas.domain.Produto;
+import com.example.financas.domain.produto.Produto;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;

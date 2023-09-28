@@ -1,9 +1,11 @@
-package com.example.financas.domain;
+package com.example.financas.domain.produto;
 
 import com.example.financas.domain.pessoa.Fornecedor;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -30,7 +32,9 @@ public class Produto {
 
     private String descricao;
 
-    private Categoria categoria;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private CategoriaProduto categoria;
 
     private String modelo;
 
@@ -39,6 +43,4 @@ public class Produto {
     private BigDecimal precoVenda = BigDecimal.ZERO;
 
     private Float margemLucro;
-
-
 }
