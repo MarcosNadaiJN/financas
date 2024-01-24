@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "fornecedor")
-public class Fornecedor extends Pessoa{
+public class Fornecedor extends Pessoa {
 }

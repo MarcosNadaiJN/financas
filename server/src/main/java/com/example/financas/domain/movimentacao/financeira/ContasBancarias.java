@@ -2,11 +2,14 @@ package com.example.financas.domain.movimentacao.financeira;
 
 import com.example.financas.domain.enums.TipoContaBancariaEnum;
 import com.example.financas.domain.pessoa.Banco;
-import com.example.financas.domain.pessoa.Pessoa;
+import com.example.financas.domain.pessoa.Funcionario;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -21,7 +24,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Table(name = "conta_bancaria")
+@Table(name = "contabancaria")
 public class ContasBancarias {
 
     @Id
@@ -30,6 +33,8 @@ public class ContasBancarias {
     private UUID id;
 
     @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "banco_id")
     private Banco banco;
 
     @NotNull
@@ -44,5 +49,7 @@ public class ContasBancarias {
     private BigDecimal saldo = BigDecimal.ZERO;
 
     @NotNull
-    private Pessoa titularConta;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "funcionario_id")
+    private Funcionario titularConta;
 }

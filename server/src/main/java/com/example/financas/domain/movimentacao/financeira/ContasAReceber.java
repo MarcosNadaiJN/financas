@@ -1,8 +1,9 @@
 package com.example.financas.domain.movimentacao.financeira;
 
-import com.example.financas.domain.pessoa.Pessoa;
 import com.example.financas.domain.movimentacao.patrimonial.Venda;
+import com.example.financas.domain.pessoa.Cliente;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -21,11 +22,11 @@ import java.io.Serializable;
 public class ContasAReceber extends MovimentacaoFinanceira implements Serializable {
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
-    private Pessoa cliente;
+    private Cliente cliente;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vendaorigem_id")
-    private Venda vendaOrigem;
+    private Venda venda;
 }

@@ -1,7 +1,10 @@
 package com.example.financas.domain.movimentacao.patrimonial;
 
-import com.example.financas.domain.formapagamento.FormaDePagamento;
+import com.example.financas.domain.enums.FormaDePagamentoEnum;
 import com.example.financas.domain.produto.Produto;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,6 +15,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -39,16 +43,11 @@ public abstract class MovimentacaoPatrimonial implements Serializable {
     private BigDecimal valorTotal = BigDecimal.ZERO;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "formadepagamento_id")
-    private FormaDePagamento formaDePagamento;
+    @Column(name = "formadepagamento")
+    private FormaDePagamentoEnum formaDePagamento;
 
     @NotNull
     private Long numeroDeParcelas;
-
-    @ManyToMany
-    @JoinTable(name = "produtos_id")
-    private List<Produto> produtos;
 
     private String descricao;
 }
