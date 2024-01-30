@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.2'
 	id 'io.spring.dependency-management' version '1.1.2'
+	id("org.liquibase.gradle") version "2.2.1"
 }
 
 group = 'com.example'
@@ -19,6 +20,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
@@ -31,3 +33,15 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+liquibase {
+	activities {
+		main {
+			changeLogFile 'src/main/resources/db/master.xml' // Arquivo de changelog do Liquibase
+			url 'jdbc:h2:mem:mydb' // URL do banco de dados
+			username 'sa'
+			password 'admin'
+		}
+	}
+}
+

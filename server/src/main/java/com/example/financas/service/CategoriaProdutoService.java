@@ -13,11 +13,7 @@ public class CategoriaProdutoService {
         this.categoriaProdutoRepository = categoriaProdutoRepository;
     }
 
-    public CategoriaProduto save(String descricao) {
-
-        CategoriaProduto categoriaProduto = new CategoriaProduto();
-        categoriaProduto.setDescricao(descricao);
-
-        return this.categoriaProdutoRepository.saveAndFlush(categoriaProduto);
+    public CategoriaProduto save(CategoriaProduto categoriaProduto) {
+        return this.categoriaProdutoRepository.save(categoriaProduto);
     }
 }
