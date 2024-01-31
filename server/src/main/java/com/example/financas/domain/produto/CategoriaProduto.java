@@ -25,5 +25,7 @@ public class CategoriaProduto {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private UUID id;
 
+    private Long codigo;
+
     private String descricao;
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/categoria")
+@RequestMapping("/categoria-produto")
 public class CategoriaProdutoResource {
 
     private final CategoriaProdutoService categoriaProdutoService;

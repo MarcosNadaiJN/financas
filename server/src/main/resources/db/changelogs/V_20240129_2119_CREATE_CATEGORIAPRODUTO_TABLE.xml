@@ -13,6 +13,7 @@
 
         <createTable tableName="categoriaproduto">
             <column name="id" type="uuid"/>
+            <column name="codigo" type="numeric(10)"/>
             <column name="descricao" type="varchar(50)"/>
         </createTable>
     </changeSet>

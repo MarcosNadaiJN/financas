@@ -3,6 +3,7 @@ package com.example.financas.domain.produto;
 import com.example.financas.domain.movimentacao.patrimonial.Compra;
 import com.example.financas.domain.movimentacao.patrimonial.Venda;
 import com.example.financas.domain.pessoa.Fornecedor;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -53,9 +54,12 @@ public class Produto implements Serializable {
 
     private String modelo;
 
+    @Column(name = "preco_compra")
     private BigDecimal precoCompra = BigDecimal.ZERO;
 
+    @Column(name = "preco_venda")
     private BigDecimal precoVenda = BigDecimal.ZERO;
 
+    @Column(name = "margem_lucro")
     private Float margemLucro;
 }
