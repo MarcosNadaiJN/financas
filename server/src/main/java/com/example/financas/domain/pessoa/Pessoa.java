@@ -1,6 +1,7 @@
 package com.example.financas.domain.pessoa;
 
 import com.example.financas.domain.enums.TipoPessoaEnum;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,10 +18,10 @@ import org.hibernate.annotations.GenericGenerator;
 import java.util.UUID;
 
 @Data
-@MappedSuperclass
+@Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Pessoa {
 
     @Id

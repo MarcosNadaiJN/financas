@@ -2,6 +2,7 @@ package com.example.financas.domain.movimentacao.patrimonial;
 
 import com.example.financas.domain.enums.FormaDePagamentoEnum;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
@@ -18,10 +19,10 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
+@Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@MappedSuperclass
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class MovimentacaoPatrimonial implements Serializable {
 
 

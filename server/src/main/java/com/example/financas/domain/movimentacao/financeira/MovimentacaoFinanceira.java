@@ -1,5 +1,6 @@
 package com.example.financas.domain.movimentacao.financeira;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,10 +21,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
+@Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@MappedSuperclass
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class MovimentacaoFinanceira implements Serializable {
 
     @Id

@@ -1,4 +1,4 @@
-package com.example.financas.domain.movimentacao.financeira;
+package com.example.financas.domain;
 
 import com.example.financas.domain.enums.TipoContaBancariaEnum;
 import com.example.financas.domain.pessoa.Banco;
