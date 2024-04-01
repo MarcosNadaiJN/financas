@@ -1,7 +1,7 @@
 package com.example.financas.domain.movimentacao.financeira;
 
-import com.example.financas.domain.movimentacao.patrimonial.Compra;
-import com.example.financas.domain.pessoa.Fornecedor;
+import com.example.financas.domain.movimentacao.patrimonial.Venda;
+import com.example.financas.domain.pessoa.Cliente;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -18,16 +18,15 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "contasapagar")
-public class ContasAPagar extends MovimentacaoFinanceira implements Serializable {
+@Table(name = "contasareceber")
+public class ContaAReceber extends MovimentacaoFinanceira implements Serializable {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fornecedor_id")
-    private Fornecedor fornecedor;
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "compraorigem_id")
-    private Compra compra;
+    @JoinColumn(name = "vendaorigem_id")
+    private Venda venda;
 }

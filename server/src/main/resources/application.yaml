@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:mydb;
+    url: jdbc:h2:~/test_db
     username: sa
     password:
     driverClassName: org.h2.Driver
@@ -11,3 +11,6 @@ spring:
     console.enabled: true
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: update
+  liquibase:
+    changeLog: classpath:/db/master.xml

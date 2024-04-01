@@ -13,6 +13,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
@@ -44,16 +45,11 @@ public abstract class MovimentacaoFinanceira implements Serializable {
 
     private LocalDateTime dataPagamento;
 
-    private Long diasDeAtrasoPagamento;
+//    @Formula("")
+//    private Long diasDeAtrasoPagamento;
 
-    private Boolean estaPaga;
+//    @Formula("")
+//    private Boolean estaPaga;
 
     private String descricao;
-
-    @PreUpdate
-    public void preUpdate() {
-        if (this.dataPagamento != null) {
-            this.setEstaPaga(Boolean.TRUE);
-        }
-    }
 }

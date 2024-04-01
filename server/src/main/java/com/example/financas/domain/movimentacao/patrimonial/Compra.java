@@ -1,6 +1,6 @@
 package com.example.financas.domain.movimentacao.patrimonial;
 
-import com.example.financas.domain.movimentacao.financeira.ContasAPagar;
+import com.example.financas.domain.movimentacao.financeira.ContaAPagar;
 import com.example.financas.domain.pessoa.Fornecedor;
 import com.example.financas.domain.produto.Produto;
 import jakarta.persistence.Entity;
@@ -30,7 +30,7 @@ public class Compra extends MovimentacaoPatrimonial implements Serializable {
     private Fornecedor fornecedor;
 
     @OneToMany(mappedBy = "compra")
-    private List<ContasAPagar> contasAPagar;
+    private List<ContaAPagar> contasAPagar;
 
     @OneToMany(mappedBy = "compra")
     private List<Produto> produtos;

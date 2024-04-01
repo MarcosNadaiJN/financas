@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-contaapagar" author="marcos.nadai">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="contaapagar"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="contaapagar">
+            <column name="id" type="uuid"/>
+            <column name="valorInicial" type="numeric(10,4)"/>
+            <column name="valorPago" type="numeric(10,4)"/>
+            <column name="jurosPago" type="numeric(10,4)"/>
+            <column name="dataVencimento" type="date"/>
+            <column name="dataPagamento" type="date"/>
+            <column name="descricao" type="varchar(1000)"/>
+            <column name="fornecedor_id" type="uuid"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
+
