@@ -7,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -39,7 +38,7 @@ public abstract class MovimentacaoPatrimonial implements Serializable {
     private FormaDePagamentoEnum formaDePagamento;
 
     @NotNull
-    private Long numeroDeParcelas;
+    private Long numeroParcelas;
 
     private String descricao;
 }

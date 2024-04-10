@@ -23,25 +23,6 @@ import java.time.LocalDateTime;
 
 @SpringBootApplication
 public class FinancasApplication  {
-
-    @Autowired
-    private ContasAPagarRepository contasAPagarRepository;
-
-    @Autowired
-    private FornecedorRepository fornecedorRepository;
-
-    @Autowired
-    private CompraRepository compraRepository;
-
-    @Autowired
-    private VendaRepository vendaRepository;
-
-    @Autowired
-    private ContasAReceberRepository contasAReceberRepository;
-
-    @Autowired
-    private ClienteRepository clienteRepository;
-
     public static void main(String[] args) {
         SpringApplication.run(FinancasApplication.class, args);
     }

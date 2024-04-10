@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-funcionario" author="marcos.nadai">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="funcionario"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="funcionario">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="funcionario_id"/>
+            </column>
+            <column name="tipopessoa" type="varchar(15)"/>
+            <column name="cpfcnpj" type="varchar(20)"/>
+            <column name="nomerazaosocial" type="varchar(200)"/>
+            <column name="nomefantasia" type="varchar(300)"/>
+            <column name="sexo" type="varchar(20)"/>
+            <column name="telefone" type="varchar(20)"/>
+            <column name="email" type="varchar(100)"/>
+            <column name="uf" type="varchar(2)"/>
+            <column name="cidade" type="varchar(50)"/>
+            <column name="cep" type="varchar(20)"/>
+            <column name="logradouro" type="varchar(50)"/>
+            <column name="numero" type="numeric(8)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
+

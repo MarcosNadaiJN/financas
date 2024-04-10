@@ -12,7 +12,9 @@
         </preConditions>
 
         <createTable tableName="produto">
-            <column name="id" type="uuid"/>
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="prod_id"/>
+            </column>
             <column name="fornecedor_id" type="uuid"/>
             <column name="venda_id" type="uuid"/>
             <column name="compra_id" type="uuid"/>

@@ -7,13 +7,13 @@
     <changeSet id="create-table-contaapagar" author="marcos.nadai">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="contaapagar"/>
+                <tableExists tableName="contasareceber"/>
             </not>
         </preConditions>
 
-        <createTable tableName="contaapagar">
+        <createTable tableName="contasareceber">
             <column name="id" type="uuid">
-                <constraints primaryKey="true" primaryKeyName="contpag_id"/>
+                <constraints primaryKey="true" primaryKeyName="contreceb_id"/>
             </column>
             <column name="valorInicial" type="numeric(10,4)"/>
             <column name="valorPago" type="numeric(10,4)"/>
@@ -21,8 +21,8 @@
             <column name="dataVencimento" type="date"/>
             <column name="dataPagamento" type="date"/>
             <column name="descricao" type="varchar(1000)"/>
-            <column name="fornecedor_id" type="uuid"/>
-            <column name="compraorigem_id" type="uuid"/>
+            <column name="cliente_id" type="uuid"/>
+            <column name="vendaorigem_id" type="uuid"/>
         </createTable>
     </changeSet>
 

@@ -12,7 +12,9 @@
         </preConditions>
 
         <createTable tableName="categoriaproduto">
-            <column name="id" type="uuid"/>
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="catprod_id" />
+            </column>
             <column name="codigo" type="numeric(10)"/>
             <column name="descricao" type="varchar(50)"/>
         </createTable>
