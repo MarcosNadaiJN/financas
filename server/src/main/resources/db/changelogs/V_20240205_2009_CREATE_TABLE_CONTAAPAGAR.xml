@@ -4,26 +4,36 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="create-table-contaapagar" author="marcos.nadai">
+    <changeSet id="create-table-conta_a_pagar" author="marcos.nadai">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="contaapagar"/>
+                <tableExists tableName="conta_a_pagar"/>
             </not>
         </preConditions>
 
-        <createTable tableName="contaapagar">
+        <createTable tableName="conta_a_pagar">
             <column name="id" type="uuid">
-                <constraints primaryKey="true" primaryKeyName="contpag_id"/>
+                <constraints primaryKey="true" primaryKeyName="contapagar_id"/>
             </column>
-            <column name="valorInicial" type="numeric(10,4)"/>
-            <column name="valorPago" type="numeric(10,4)"/>
-            <column name="jurosPago" type="numeric(10,4)"/>
-            <column name="dataVencimento" type="date"/>
-            <column name="dataPagamento" type="date"/>
+            <column name="valorinicial" type="numeric(10,4)"/>
+            <column name="valorpago" type="numeric(10,4)"/>
+            <column name="jurospago" type="numeric(10,4)"/>
+            <column name="datavencimento" type="date"/>
+            <column name="datapagamento" type="date"/>
             <column name="descricao" type="varchar(1000)"/>
             <column name="fornecedor_id" type="uuid"/>
-            <column name="compraorigem_id" type="uuid"/>
+            <column name="compra_origem_id" type="uuid"/>
         </createTable>
+
+        <addForeignKeyConstraint baseTableName="conta_a_pagar" baseColumnNames="fornecedor_id"
+                                 constraintName="contpag-fornecedor_id-fk"
+                                 referencedTableName="fornecedor"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="conta_a_pagar" baseColumnNames="compra_origem_id"
+                                 constraintName="contpag-compra_origem_id-fk"
+                                 referencedTableName="compra"
+                                 referencedColumnNames="id"/>
     </changeSet>
 
 </databaseChangeLog>

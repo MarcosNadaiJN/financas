@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.UUID;
 
@@ -27,5 +28,6 @@ public class CategoriaProduto {
 
     private Long codigo;
 
+    @Length(max = 50)
     private String descricao;
 }

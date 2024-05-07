@@ -1,14 +1,12 @@
 package com.example.financas.domain.pessoa;
 
+import com.example.financas.domain.enums.CategoriaPessoaEnum;
+import com.example.financas.domain.enums.SexoPessoa;
 import com.example.financas.domain.enums.TipoPessoaEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,8 +19,8 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Pessoa {
+@Table(name = "pessoa")
+public class Pessoa {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -31,6 +29,11 @@ public abstract class Pessoa {
 
     @NotNull
     private TipoPessoaEnum tipoPessoa;
+
+    @NotNull
+    private CategoriaPessoaEnum categoriaPessoa;
+
+    private SexoPessoa sexoPessoa;
 
     @NotNull
     private String cpfCnpj;

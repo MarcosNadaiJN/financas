@@ -1,16 +1,13 @@
 package com.example.financas.domain;
 
 import com.example.financas.domain.enums.TipoContaBancariaEnum;
-import com.example.financas.domain.pessoa.Banco;
-import com.example.financas.domain.pessoa.Funcionario;
+import com.example.financas.domain.pessoa.Pessoa;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -36,7 +33,7 @@ public class ContasBancarias {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "banco_id")
-    private Banco banco;
+    private Pessoa banco;
 
     @NotNull
     private TipoContaBancariaEnum tipo;
@@ -52,5 +49,5 @@ public class ContasBancarias {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "funcionario_id")
-    private Funcionario titularConta;
+    private Pessoa titularConta;
 }

@@ -4,26 +4,36 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="create-table-contaapagar" author="marcos.nadai">
+    <changeSet id="create-table-conta_a_receber" author="marcos.nadai">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="contasareceber"/>
+                <tableExists tableName="conta_a_receber"/>
             </not>
         </preConditions>
 
-        <createTable tableName="contasareceber">
+        <createTable tableName="conta_a_receber">
             <column name="id" type="uuid">
-                <constraints primaryKey="true" primaryKeyName="contreceb_id"/>
+                <constraints primaryKey="true" primaryKeyName="conta_receb_id"/>
             </column>
-            <column name="valorInicial" type="numeric(10,4)"/>
-            <column name="valorPago" type="numeric(10,4)"/>
-            <column name="jurosPago" type="numeric(10,4)"/>
-            <column name="dataVencimento" type="date"/>
-            <column name="dataPagamento" type="date"/>
+            <column name="valorinicial" type="numeric(10,4)"/>
+            <column name="valorpago" type="numeric(10,4)"/>
+            <column name="jurospago" type="numeric(10,4)"/>
+            <column name="datavencimento" type="date"/>
+            <column name="datapagamento" type="date"/>
             <column name="descricao" type="varchar(1000)"/>
             <column name="cliente_id" type="uuid"/>
             <column name="vendaorigem_id" type="uuid"/>
         </createTable>
+
+        <addForeignKeyConstraint baseTableName="conta_a_receber" baseColumnNames="cliente_id"
+                                 constraintName="contrec-cliente_id-fk"
+                                 referencedTableName="cliente"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="conta_a_receber" baseColumnNames="venda_origem_id"
+                                 constraintName="contrec-venda_origem_id-fk"
+                                 referencedTableName="venda"
+                                 referencedColumnNames="id"/>
     </changeSet>
 
 </databaseChangeLog>
