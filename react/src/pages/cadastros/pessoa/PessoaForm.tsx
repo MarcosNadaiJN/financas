@@ -1,9 +1,9 @@
-import "./Pessoa.css";
-
-export default function PessoaForm() {
+const PessoaForm = () => {
   return (
-    <div>
-      <div>pessoa</div>
-    </div>
+    <>
+      <>pessoaForm</>
+    </>
   );
-}
+};
+
+export default PessoaForm;
