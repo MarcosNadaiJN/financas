@@ -22,7 +22,7 @@
             <column name="datapagamento" type="date"/>
             <column name="descricao" type="varchar(1000)"/>
             <column name="cliente_id" type="uuid"/>
-            <column name="vendaorigem_id" type="uuid"/>
+            <column name="venda_origem_id" type="uuid"/>
         </createTable>
 
         <addForeignKeyConstraint baseTableName="conta_a_receber" baseColumnNames="cliente_id"
