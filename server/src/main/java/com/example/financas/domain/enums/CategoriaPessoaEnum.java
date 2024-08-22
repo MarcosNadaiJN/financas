@@ -5,7 +5,7 @@ public enum CategoriaPessoaEnum {
     BANCO("Banco", 1L),
     FUNCIONARIO("Funcionário", 2L),
     FORNECEDOR("Fornecedor", 3L),
-    CLIENTES("Cliente", 4L);
+    CLIENTE("Cliente", 4L);
 
     private final String descricao;
     private final Long codigo;

@@ -21,7 +21,6 @@
             <column name="cpfcnpj" type="varchar(20)"/>
             <column name="nomerazaosocial" type="varchar(200)"/>
             <column name="nomefantasia" type="varchar(300)"/>
-            <column name="sexo" type="varchar(20)"/>
             <column name="telefone" type="varchar(20)"/>
             <column name="email" type="varchar(100)"/>
             <column name="uf" type="varchar(2)"/>

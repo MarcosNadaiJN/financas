@@ -24,7 +24,7 @@ public class Pessoa {
 
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GenericGenerator(name = "uuid")
     private UUID id;
 
     @NotNull
@@ -42,8 +42,6 @@ public class Pessoa {
     private String nomeRazaoSocial;
 
     private String nomeFantasia;
-
-    private String sexo;
 
     private String telefone;
 
