@@ -1,5 +1,7 @@
 package com.example.financas.domain.movimentacao.financeira;
 
+import com.example.financas.domain.dto.ContaAPagarDTO;
+import com.example.financas.domain.generic.CrudEntity;
 import com.example.financas.domain.movimentacao.patrimonial.Compra;
 import com.example.financas.domain.pessoa.Pessoa;
 import jakarta.persistence.Entity;
@@ -17,6 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -25,7 +28,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Table(name = "conta_a_pagar")
-public class ContaAPagar implements Serializable {
+public class ContaAPagar implements Serializable, CrudEntity<UUID, ContaAPagarDTO> {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -40,7 +43,7 @@ public class ContaAPagar implements Serializable {
     private BigDecimal jurosPago = BigDecimal.ZERO;
 
     @NotNull
-    private LocalDateTime dataVencimento;
+    private LocalDate dataVencimento;
 
     private LocalDateTime dataPagamento;
 
@@ -55,4 +58,10 @@ public class ContaAPagar implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "compra_origem_id")
     private Compra compra;
+
+
+    @Override
+    public ContaAPagarDTO toDTO() {
+        return null;
+    }
 }
