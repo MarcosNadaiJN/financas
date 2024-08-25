@@ -1,19 +1,12 @@
 package com.example.financas.service;
 
+import com.example.financas.domain.dto.CategoriaProdutoDTO;
 import com.example.financas.domain.produto.CategoriaProduto;
-import com.example.financas.repository.CategoriaProdutoRepository;
+import com.example.financas.generic.CrudJPAService;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
-public class CategoriaProdutoService {
-
-    private CategoriaProdutoRepository categoriaProdutoRepository;
-
-    public CategoriaProdutoService(CategoriaProdutoRepository categoriaProdutoRepository) {
-        this.categoriaProdutoRepository = categoriaProdutoRepository;
-    }
-
-    public CategoriaProduto save(CategoriaProduto categoriaProduto) {
-        return this.categoriaProdutoRepository.save(categoriaProduto);
-    }
+public class CategoriaProdutoService extends CrudJPAService<CategoriaProduto, UUID, CategoriaProdutoDTO> {
 }

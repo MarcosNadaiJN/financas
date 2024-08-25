@@ -1,9 +1,9 @@
 package com.example.financas.repository;
 
 import com.example.financas.domain.movimentacao.patrimonial.Venda;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.financas.generic.CrudJPARepository;
 
 import java.util.UUID;
 
-public interface VendaRepository extends JpaRepository<Venda, UUID> {
+public interface VendaRepository extends CrudJPARepository<Venda, UUID> {
 }

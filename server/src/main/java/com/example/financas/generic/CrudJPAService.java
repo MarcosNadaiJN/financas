@@ -1,23 +1,19 @@
-package com.example.financas.service.generic;
+package com.example.financas.generic;
 
-import com.example.financas.domain.generic.CrudEntity;
 import com.example.financas.exceptions.RegistroNaoEncontradoException;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CrudService<T extends CrudEntity<K, D>, K extends Serializable, D> {
+public class CrudJPAService<T extends CrudEntity<K, D>, K extends Serializable, D> {
 
-    private JpaRepository<T, K> repository;
-
-    public CrudService(JpaRepository<T, K> repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    private CrudJPARepository<T, K> repository;
 
     public D save(T entity) {
-        return this.repository.save(entity).toDTO();
+        return this.repository.saveAndFlush(entity).toDTO();
     }
 
     public D findById(K id) {
@@ -29,7 +25,7 @@ public class CrudService<T extends CrudEntity<K, D>, K extends Serializable, D> 
     }
 
     public D update(K id, T entity) {
-        if (this.repository.existsById(id)){
+        if (this.repository.existsById(id)) {
             this.repository.saveAndFlush(entity);
         }
         throw new RegistroNaoEncontradoException("Registro não encontrado.");

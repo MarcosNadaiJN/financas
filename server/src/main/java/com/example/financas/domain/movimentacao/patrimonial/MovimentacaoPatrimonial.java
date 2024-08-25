@@ -4,6 +4,7 @@ import com.example.financas.domain.enums.FormaDePagamentoEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
@@ -26,8 +27,7 @@ public abstract class MovimentacaoPatrimonial implements Serializable {
 
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @NotNull

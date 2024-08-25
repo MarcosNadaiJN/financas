@@ -1,10 +1,13 @@
-package com.example.financas.domain;
+package com.example.financas.domain.contas;
 
+import com.example.financas.domain.dto.ContaBancariaDTO;
 import com.example.financas.domain.enums.TipoContaBancariaEnum;
 import com.example.financas.domain.pessoa.Pessoa;
+import com.example.financas.generic.CrudEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -13,7 +16,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -23,11 +25,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Table(name = "contabancaria")
-public class ContasBancarias {
+public class ContaBancaria implements CrudEntity<UUID, ContaBancariaDTO> {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @NotNull
@@ -50,4 +51,18 @@ public class ContasBancarias {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "funcionario_id")
     private Pessoa titularConta;
+
+    @Override
+    public ContaBancariaDTO toDTO() {
+
+        ContaBancariaDTO dto = new ContaBancariaDTO();
+
+        dto.setId(this.id);
+        dto.setTipo(this.tipo);
+        dto.setNumeroConta(this.numeroConta);
+        dto.setAgencia(this.agencia);
+        dto.setSaldo(this.saldo);
+        return dto;
+    }
+
 }

@@ -1,27 +1,13 @@
 package com.example.financas.service;
 
+import com.example.financas.domain.dto.PessoaDTO;
 import com.example.financas.domain.pessoa.Pessoa;
-import com.example.financas.domain.produto.CategoriaProduto;
-import com.example.financas.repository.CategoriaProdutoRepository;
-import com.example.financas.repository.PessoaRepository;
+import com.example.financas.generic.CrudJPAService;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
-public class PessoaService {
+public class PessoaService extends CrudJPAService<Pessoa, UUID, PessoaDTO> {
 
-    private final PessoaRepository pessoaRepository;
-
-    public PessoaService(PessoaRepository pessoaRepository) {
-        this.pessoaRepository = pessoaRepository;
-    }
-
-    public Pessoa save(Pessoa pessoa) {
-        return this.pessoaRepository.save(pessoa);
-    }
-
-    public Pessoa findById(UUID id) {
-        return this.pessoaRepository.findById(id).get();
-    }
 }

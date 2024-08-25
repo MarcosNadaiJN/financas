@@ -1,25 +1,18 @@
 package com.example.financas.resource;
 
+import com.example.financas.domain.dto.CategoriaProdutoDTO;
 import com.example.financas.domain.produto.CategoriaProduto;
+import com.example.financas.generic.CrudJPAResource;
 import com.example.financas.service.CategoriaProdutoService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/categoria-produto")
-public class CategoriaProdutoResource {
-
-    private final CategoriaProdutoService categoriaProdutoService;
-
-    public CategoriaProdutoResource(CategoriaProdutoService categoriaProdutoService) {
-        this.categoriaProdutoService = categoriaProdutoService;
-    }
-
-    @PostMapping
-    public ResponseEntity<CategoriaProduto> save(@RequestBody CategoriaProduto categoriaProduto) {
-        return ResponseEntity.ok(this.categoriaProdutoService.save(categoriaProduto));
+public class CategoriaProdutoResource extends CrudJPAResource<CategoriaProduto, UUID, CategoriaProdutoDTO> {
+    public CategoriaProdutoResource(CategoriaProdutoService service) {
+        super(service);
     }
 }

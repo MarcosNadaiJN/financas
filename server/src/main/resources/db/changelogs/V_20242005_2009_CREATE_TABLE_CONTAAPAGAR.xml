@@ -27,7 +27,7 @@
 
         <addForeignKeyConstraint baseTableName="conta_a_pagar" baseColumnNames="fornecedor_id"
                                  constraintName="contpag-fornecedor_id-fk"
-                                 referencedTableName="fornecedor"
+                                 referencedTableName="pessoa"
                                  referencedColumnNames="id"/>
 
         <addForeignKeyConstraint baseTableName="conta_a_pagar" baseColumnNames="compra_origem_id"

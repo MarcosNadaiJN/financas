@@ -27,7 +27,7 @@
 
         <addForeignKeyConstraint baseTableName="conta_a_receber" baseColumnNames="cliente_id"
                                  constraintName="contrec-cliente_id-fk"
-                                 referencedTableName="cliente"
+                                 referencedTableName="pessoa"
                                  referencedColumnNames="id"/>
 
         <addForeignKeyConstraint baseTableName="conta_a_receber" baseColumnNames="venda_origem_id"

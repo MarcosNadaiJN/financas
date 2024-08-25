@@ -2,6 +2,7 @@ package com.example.financas.domain.enums;
 
 public enum SexoPessoa {
 
+    INDEFINIDO("Indefinido", "I"),
     MASCULINO("Masculino", "M"),
     FEMININO("Feminino", "F");
 

@@ -29,8 +29,7 @@ import java.util.UUID;
 public abstract class MovimentacaoFinanceira implements Serializable {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @NotNull
