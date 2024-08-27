@@ -4,14 +4,14 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="create-table-categoriaproduto" author="marcos.nadai">
+    <changeSet id="create-table-categoria_produto" author="marcos.nadai">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="categoriaproduto"/>
+                <tableExists tableName="categoria_produto"/>
             </not>
         </preConditions>
 
-        <createTable tableName="categoriaproduto">
+        <createTable tableName="categoria_produto">
             <column name="id" type="uuid">
                 <constraints primaryKey="true" primaryKeyName="catprod_id" />
             </column>

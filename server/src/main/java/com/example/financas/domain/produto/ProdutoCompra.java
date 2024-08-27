@@ -25,7 +25,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Table(name = "produto_compra") //TODO - criar tabela
+@Table(name = "produto_compra")
 public class ProdutoCompra implements CrudEntity<UUID, ProdutoCompraDTO> {
 
     @Id

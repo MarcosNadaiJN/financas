@@ -4,7 +4,6 @@ import com.example.financas.domain.dto.VendaDTO;
 import com.example.financas.domain.enums.FormaDePagamentoEnum;
 import com.example.financas.domain.movimentacao.financeira.ContaAReceber;
 import com.example.financas.domain.pessoa.Pessoa;
-import com.example.financas.domain.produto.Produto;
 import com.example.financas.domain.produto.ProdutoVenda;
 import com.example.financas.generic.CrudEntity;
 import jakarta.persistence.Column;
@@ -18,18 +17,14 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter

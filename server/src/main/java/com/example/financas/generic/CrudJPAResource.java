@@ -13,9 +13,9 @@ import java.util.List;
 
 public class CrudJPAResource<T extends CrudEntity<K, D>, K extends Serializable, D> {
 
-    private final CrudJPAService<T, K ,D> service;
+    private final CrudJPAService<T, K, D> service;
 
-    public CrudJPAResource(CrudJPAService<T, K, D> service){
+    public CrudJPAResource(CrudJPAService<T, K, D> service) {
         this.service = service;
     }
 

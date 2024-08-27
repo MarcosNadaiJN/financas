@@ -4,7 +4,6 @@ import com.example.financas.domain.dto.CompraDTO;
 import com.example.financas.domain.enums.FormaDePagamentoEnum;
 import com.example.financas.domain.movimentacao.financeira.ContaAPagar;
 import com.example.financas.domain.pessoa.Pessoa;
-import com.example.financas.domain.produto.Produto;
 import com.example.financas.domain.produto.ProdutoCompra;
 import com.example.financas.generic.CrudEntity;
 import jakarta.persistence.Column;

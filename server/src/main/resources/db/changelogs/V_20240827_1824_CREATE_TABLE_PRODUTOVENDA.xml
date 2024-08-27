@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-produto_venda" author="marcos.nadai">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="produto_venda"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="produto_venda">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="produto_venda_id"/>
+            </column>
+            <column name="produto_id" type="uuid"/>
+            <column name="venda_id" type="uuid"/>
+            <column name="preco_venda" type="numeric(15,4)"/>
+            <column name="quantidade" type="numeric(15,4)"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="produto_venda" baseColumnNames="produto_id"
+                                 constraintName="prod_vend_prod_id-fk"
+                                 referencedTableName="produto"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="produto_venda" baseColumnNames="venda_id"
+                                 constraintName="prod_vend_venda_id-fk"
+                                 referencedTableName="venda"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
+

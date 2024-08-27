@@ -1,6 +1,5 @@
 package com.example.financas.domain.dto;
 
-import com.example.financas.domain.produto.CategoriaProduto;
 import lombok.Getter;
 import lombok.Setter;
 
