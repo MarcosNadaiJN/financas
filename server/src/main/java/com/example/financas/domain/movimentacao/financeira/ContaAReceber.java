@@ -80,5 +80,4 @@ public class ContaAReceber implements CrudEntity<UUID, ContaAReceberDTO> {
         dto.setDescricao(this.descricao);
         return dto;
     }
-
 }

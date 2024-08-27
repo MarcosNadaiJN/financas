@@ -1,9 +1,7 @@
 package com.example.financas.domain.produto;
 
-import com.example.financas.domain.dto.ProdutoDTO;
-import com.example.financas.domain.movimentacao.patrimonial.Compra;
+import com.example.financas.domain.dto.ProdutoVendaDTO;
 import com.example.financas.domain.movimentacao.patrimonial.Venda;
-import com.example.financas.domain.pessoa.Pessoa;
 import com.example.financas.generic.CrudEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,14 +12,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -30,32 +25,37 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Table(name = "produto") //TODO - ajustar tabela
-public class Produto implements CrudEntity<UUID, ProdutoDTO> {
+@Table(name = "produto_venda") //TODO - criar tabela
+public class ProdutoVenda implements CrudEntity<UUID, ProdutoVendaDTO> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id")
-    private CategoriaProduto categoria;
+    @JoinColumn(name = "produto_id")
+    private Produto produto;
 
-    private String marca;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "venda_id")
+    private Venda venda;
 
-    private String modelo;
+    @Column(name = "preco_venda")
+    private BigDecimal precoVenda = BigDecimal.ZERO;
 
-    private String descricao;
+    @Column(name = "quantidade")
+    private BigDecimal quantidade = BigDecimal.ZERO;
 
     @Override
-    public ProdutoDTO toDTO() {
+    public ProdutoVendaDTO toDTO() {
 
-        ProdutoDTO dto = new ProdutoDTO();
+        ProdutoVendaDTO dto = new ProdutoVendaDTO();
 
-        dto.setId(this.id);
-        dto.setMarca(this.marca);
-        dto.setModelo(this.modelo);
-        dto.setDescricao(this.descricao);
+        dto.setId(this.getId());
+        dto.setProdutoid(this.getProduto().getId());
+        dto.setVendaId(this.getVenda().getId());
+        dto.setPrecoVenda(this.getPrecoVenda());
+        dto.setQuantidade(this.getQuantidade());
         return dto;
     }
 
