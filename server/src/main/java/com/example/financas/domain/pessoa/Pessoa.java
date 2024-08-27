@@ -5,6 +5,7 @@ import com.example.financas.domain.enums.CategoriaPessoaEnum;
 import com.example.financas.domain.enums.SexoPessoa;
 import com.example.financas.domain.enums.TipoPessoaEnum;
 import com.example.financas.generic.CrudEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,19 +35,25 @@ public class Pessoa implements CrudEntity<UUID, PessoaDTO> {
     private UUID id;
 
     @NotNull
+    @Column(name = "tipo_pessoa")
     private TipoPessoaEnum tipoPessoa;
 
     @NotNull
+    @Column(name = "categoria_pessoa")
     private CategoriaPessoaEnum categoriaPessoa;
 
+    @Column(name = "sexo_pessoa")
     private SexoPessoa sexoPessoa;
 
     @NotNull
+    @Column(name = "cpf_cnpj")
     private String cpfCnpj;
 
     @NotNull
+    @Column(name = "nome_razao_social")
     private String nomeRazaoSocial;
 
+    @Column(name = "nome_fantasia")
     private String nomeFantasia;
 
     private String telefone;

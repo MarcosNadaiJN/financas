@@ -4,6 +4,7 @@ import com.example.financas.domain.dto.ContaAReceberDTO;
 import com.example.financas.domain.movimentacao.patrimonial.Venda;
 import com.example.financas.domain.pessoa.Pessoa;
 import com.example.financas.generic.CrudEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +16,9 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
@@ -23,7 +26,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -35,15 +39,20 @@ public class ContaAReceber implements CrudEntity<UUID, ContaAReceberDTO> {
     private UUID id;
 
     @NotNull
+    @Column(name = "valor_inicial")
     private BigDecimal valorInicial = BigDecimal.ZERO;
 
+    @Column(name = "valor_pago")
     private BigDecimal valorPago = BigDecimal.ZERO;
 
+    @Column(name = "juros_pago")
     private BigDecimal jurosPago = BigDecimal.ZERO;
 
     @NotNull
+    @Column(name = "data_vencimento")
     private LocalDateTime dataVencimento;
 
+    @Column(name = "data_pagamento")
     private LocalDateTime dataPagamento;
 
     private String descricao;
@@ -53,6 +62,7 @@ public class ContaAReceber implements CrudEntity<UUID, ContaAReceberDTO> {
     @JoinColumn(name = "cliente_id")
     private Pessoa cliente;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venda_origem_id")
     private Venda venda;

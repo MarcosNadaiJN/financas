@@ -15,12 +15,12 @@
             <column name="id" type="uuid">
                 <constraints primaryKey="true" primaryKeyName="pessoa_id"/>
             </column>
-            <column name="tipopessoa" type="varchar(15)"/>
-            <column name="categoriapessoa" type="varchar(15)"/>
-            <column name="sexopessoa" type="varchar(15)"/>
-            <column name="cpfcnpj" type="varchar(20)"/>
-            <column name="nomerazaosocial" type="varchar(200)"/>
-            <column name="nomefantasia" type="varchar(300)"/>
+            <column name="tipo_pessoa" type="varchar(15)"/>
+            <column name="categoria_pessoa" type="varchar(15)"/>
+            <column name="sexo_pessoa" type="varchar(15)"/>
+            <column name="cpf_cnpj" type="varchar(20)"/>
+            <column name="nome_razao_social" type="varchar(200)"/>
+            <column name="nome_fantasia" type="varchar(300)"/>
             <column name="telefone" type="varchar(20)"/>
             <column name="email" type="varchar(100)"/>
             <column name="uf" type="varchar(2)"/>

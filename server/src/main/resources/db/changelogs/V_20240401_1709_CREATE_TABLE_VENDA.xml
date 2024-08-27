@@ -15,9 +15,9 @@
             <column name="id" type="uuid">
                 <constraints primaryKey="true" primaryKeyName="venda_id"/>
             </column>
-            <column name="valortotal" type="numeric(15,4)"/>
-            <column name="formadepagamento" type="varchar(30)"/>
-            <column name="numeroParcelas" type="numeric(15, 0)"/>
+            <column name="valor_total" type="numeric(15,4)"/>
+            <column name="forma_de_pagamento" type="varchar(30)"/>
+            <column name="numero_parcelas" type="numeric(15, 0)"/>
             <column name="descricao" type="varchar(1000)"/>
             <column name="cliente_id" type="uuid"/>
         </createTable>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping("/pessoas")
 public class PessoaResource extends CrudJPAResource<Pessoa, UUID, PessoaDTO> {
 
     public PessoaResource(PessoaService service) {

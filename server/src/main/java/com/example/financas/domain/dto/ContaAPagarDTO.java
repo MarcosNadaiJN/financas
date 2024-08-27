@@ -1,13 +1,16 @@
 package com.example.financas.domain.dto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 public class ContaAPagarDTO {
 
     private UUID id;

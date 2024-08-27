@@ -3,10 +3,11 @@ package com.example.financas.domain.enums;
 public enum FormaDePagamentoEnum {
 
     BOLETO("Boleto", 1),
-    CARTAO("Cartão", 2),
-    PIX("PIX", 3),
-    TRANSFERENCIA("Transferência", 4),
-    CHEQUE("Cheque", 5);
+    CARTAO_CREDITO("Cartão de Credito", 2),
+    CARTAO_DEBITO("Cartão de Debito", 3),
+    PIX("PIX", 4),
+    TRANSFERENCIA("Transferência", 5),
+    CHEQUE("Cheque", 6);
 
     private final String descricao;
     private final Integer codigo;

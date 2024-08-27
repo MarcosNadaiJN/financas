@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/categoria-produto")
+@RequestMapping("/categorias-produtos")
 public class CategoriaProdutoResource extends CrudJPAResource<CategoriaProduto, UUID, CategoriaProdutoDTO> {
     public CategoriaProdutoResource(CategoriaProdutoService service) {
         super(service);

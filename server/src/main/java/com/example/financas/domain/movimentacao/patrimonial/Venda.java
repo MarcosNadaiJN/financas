@@ -19,7 +19,9 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
@@ -28,7 +30,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -40,13 +43,15 @@ public class Venda implements CrudEntity<UUID, VendaDTO> {
     private UUID id;
 
     @NotNull
+    @Column(name = "valor_total")
     private BigDecimal valorTotal = BigDecimal.ZERO;
 
     @NotNull
-    @Column(name = "formadepagamento")
+    @Column(name = "forma_de_pagamento")
     private FormaDePagamentoEnum formaDePagamento;
 
     @NotNull
+    @Column(name = "numero_parcelas")
     private Long numeroParcelas;
 
     private String descricao;

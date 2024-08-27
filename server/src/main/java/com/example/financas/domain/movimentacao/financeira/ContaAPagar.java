@@ -4,6 +4,7 @@ import com.example.financas.domain.dto.ContaAPagarDTO;
 import com.example.financas.generic.CrudEntity;
 import com.example.financas.domain.movimentacao.patrimonial.Compra;
 import com.example.financas.domain.pessoa.Pessoa;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -37,15 +38,20 @@ public class ContaAPagar implements CrudEntity<UUID, ContaAPagarDTO> {
     private UUID id;
 
     @NotNull
+    @Column(name = "valor_inicial")
     private BigDecimal valorInicial = BigDecimal.ZERO;
 
+    @Column(name = "valor_pago")
     private BigDecimal valorPago = BigDecimal.ZERO;
 
+    @Column(name = "juros_pago")
     private BigDecimal jurosPago = BigDecimal.ZERO;
 
     @NotNull
+    @Column(name = "data_vencimento")
     private LocalDate dataVencimento;
 
+    @Column(name = "data_pagamento")
     private LocalDateTime dataPagamento;
 
     private String descricao;

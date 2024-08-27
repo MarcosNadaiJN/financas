@@ -15,11 +15,11 @@
             <column name="id" type="uuid">
                 <constraints primaryKey="true" primaryKeyName="conta_receb_id"/>
             </column>
-            <column name="valorinicial" type="numeric(10,4)"/>
-            <column name="valorpago" type="numeric(10,4)"/>
-            <column name="jurospago" type="numeric(10,4)"/>
-            <column name="datavencimento" type="date"/>
-            <column name="datapagamento" type="date"/>
+            <column name="valor_inicial" type="numeric(10,4)"/>
+            <column name="valor_pago" type="numeric(10,4)"/>
+            <column name="juros_pago" type="numeric(10,4)"/>
+            <column name="data_vencimento" type="date"/>
+            <column name="data_pagamento" type="date"/>
             <column name="descricao" type="varchar(1000)"/>
             <column name="cliente_id" type="uuid"/>
             <column name="venda_origem_id" type="uuid"/>

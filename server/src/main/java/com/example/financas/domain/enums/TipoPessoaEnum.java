@@ -2,8 +2,8 @@ package com.example.financas.domain.enums;
 
 public enum TipoPessoaEnum {
 
-    PESSOA_FISICA("Pessoa Física", "PF"),
-    PESSOA_JURIDICA("Pessoa Juridica", "PJ");
+    FISICA("Pessoa Física", "PF"),
+    PURIDICA("Pessoa Juridica", "PJ");
 
     private final String descricao;
     private final String codigo;
