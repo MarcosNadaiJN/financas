@@ -20,7 +20,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Table(name = "categoriaproduto")
+@Table(name = "categoria_produto")
 public class CategoriaProduto implements CrudEntity<UUID, CategoriaProdutoDTO> {
 
     @Id

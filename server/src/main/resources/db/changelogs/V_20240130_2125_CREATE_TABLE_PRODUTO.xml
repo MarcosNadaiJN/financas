@@ -15,16 +15,16 @@
             <column name="id" type="uuid">
                 <constraints primaryKey="true" primaryKeyName="prod_id"/>
             </column>
-            <column name="fornecedor_id" type="uuid"/>
-            <column name="venda_id" type="uuid"/>
-            <column name="compra_id" type="uuid"/>
-            <column name="descricao" type="varchar(250)"/>
-            <column name="categoria_id" type="uuid"/>
+            <column name="categoria_produto_id" type="uuid"/>
+            <column name="marca" type="varchar(250)"/>
             <column name="modelo" type="varchar(250)"/>
-            <column name="preco_compra" type="numeric(15,4)"/>
-            <column name="preco_venda" type="numeric(15,4)"/>
-            <column name="margem_lucro" type="numeric(15,4)"/>
+            <column name="descricao" type="varchar(250)"/>
         </createTable>
+
+        <addForeignKeyConstraint baseTableName="produto" baseColumnNames="categoria_produto_id"
+                                 constraintName="catprod-cat_id-fk"
+                                 referencedTableName="categoriaproduto"
+                                 referencedColumnNames="id"/>
     </changeSet>
 
 </databaseChangeLog>

@@ -13,7 +13,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +26,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Table(name = "contabancaria")
+@Table(name = "conta_bancaria")
 public class ContaBancaria implements CrudEntity<UUID, ContaBancariaDTO> {
 
     @Id

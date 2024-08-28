@@ -1,9 +1,9 @@
 package com.example.financas.domain.movimentacao.financeira;
 
 import com.example.financas.domain.dto.ContaAPagarDTO;
-import com.example.financas.generic.CrudEntity;
 import com.example.financas.domain.movimentacao.patrimonial.Compra;
 import com.example.financas.domain.pessoa.Pessoa;
+import com.example.financas.generic.CrudEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,7 +19,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
