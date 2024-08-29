@@ -1,9 +1,11 @@
 package com.example.financas.domain.enums;
 
-public enum TipoPessoaEnum {
+import com.example.financas.generic.enums.CodedEnum;
+
+public enum TipoPessoaEnum implements CodedEnum {
 
     FISICA("Pessoa Física", "PF"),
-    PURIDICA("Pessoa Juridica", "PJ");
+    JURIDICA("Pessoa Juridica", "PJ");
 
     private final String descricao;
     private final String codigo;

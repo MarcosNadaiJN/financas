@@ -1,15 +1,15 @@
 package com.example.financas.domain.enums;
 
-public enum SexoPessoa {
+public enum SexoPessoaEnum {
 
-    INDEFINIDO("Indefinido", "I"),
+    INEXISTENTE("Inexistente", "I"),
     MASCULINO("Masculino", "M"),
     FEMININO("Feminino", "F");
 
     private final String descricao;
     private final String codigo;
 
-    SexoPessoa(String descricao, String codigo) {
+    SexoPessoaEnum(String descricao, String codigo) {
         this.descricao = descricao;
         this.codigo = codigo;
     }

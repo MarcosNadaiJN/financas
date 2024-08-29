@@ -2,10 +2,14 @@ package com.example.financas.domain.pessoa;
 
 import com.example.financas.domain.dto.PessoaDTO;
 import com.example.financas.domain.enums.CategoriaPessoaEnum;
-import com.example.financas.domain.enums.SexoPessoa;
+import com.example.financas.domain.enums.SexoPessoaEnum;
 import com.example.financas.domain.enums.TipoPessoaEnum;
+import com.example.financas.domain.enums.UnidadeFederalEnum;
+import com.example.financas.domain.enums.converters.TipoPessoaEnumConverter;
 import com.example.financas.generic.CrudEntity;
+import com.example.financas.generic.enums.CodedEnumConverter;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +21,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.validator.constraints.br.CNPJ;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.util.UUID;
 
@@ -35,6 +41,7 @@ public class Pessoa implements CrudEntity<UUID, PessoaDTO> {
 
     @NotNull
     @Column(name = "tipo_pessoa")
+    @Convert(converter = TipoPessoaEnumConverter.class)
     private TipoPessoaEnum tipoPessoa;
 
     @NotNull
@@ -42,25 +49,26 @@ public class Pessoa implements CrudEntity<UUID, PessoaDTO> {
     private CategoriaPessoaEnum categoriaPessoa;
 
     @Column(name = "sexo_pessoa")
-    private SexoPessoa sexoPessoa;
+    private SexoPessoaEnum sexoPessoaEnum;
+
+    @CPF
+    private String cpf;
+
+    @CNPJ
+    private String cnpj;
+
+    @Column(name = "razao_social")
+    private String razaoSocial;
 
     @NotNull
-    @Column(name = "cpf_cnpj")
-    private String cpfCnpj;
-
-    @NotNull
-    @Column(name = "nome_razao_social")
-    private String nomeRazaoSocial;
-
-    @Column(name = "nome_fantasia")
-    private String nomeFantasia;
+    private String nome;
 
     private String telefone;
 
     private String email;
 
     @NotNull
-    private String uf;
+    private UnidadeFederalEnum uf;
 
     @NotNull
     private String cidade;
@@ -77,13 +85,14 @@ public class Pessoa implements CrudEntity<UUID, PessoaDTO> {
         dto.setId(this.id);
         dto.setTipoPessoa(this.tipoPessoa);
         dto.setCategoriaPessoa(this.categoriaPessoa);
-        dto.setSexoPessoa(this.sexoPessoa);
-        dto.setCpfCnpj(this.cpfCnpj);
-        dto.setNomeRazaoSocial(this.nomeRazaoSocial);
-        dto.setNomeFantasia(this.nomeFantasia);
+        dto.setSexoPessoaEnum(this.sexoPessoaEnum);
+        dto.setCpf(this.cpf);
+        dto.setCnpj(this.cnpj);
+        dto.setRazaoSocial(this.razaoSocial);
+        dto.setNome(this.nome);
         dto.setTelefone(this.telefone);
         dto.setEmail(this.email);
-        dto.setUf(this.uf);
+        dto.setUf(this.uf.getCodigo());
         dto.setCidade(this.cidade);
         dto.setCep(this.cep);
         dto.setLogradouro(this.logradouro);

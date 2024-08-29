@@ -1,7 +1,7 @@
 package com.example.financas.domain.dto;
 
 import com.example.financas.domain.enums.CategoriaPessoaEnum;
-import com.example.financas.domain.enums.SexoPessoa;
+import com.example.financas.domain.enums.SexoPessoaEnum;
 import com.example.financas.domain.enums.TipoPessoaEnum;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,10 +15,11 @@ public class PessoaDTO {
     private UUID id;
     private TipoPessoaEnum tipoPessoa;
     private CategoriaPessoaEnum categoriaPessoa;
-    private SexoPessoa sexoPessoa;
-    private String cpfCnpj;
-    private String nomeRazaoSocial;
-    private String nomeFantasia;
+    private SexoPessoaEnum sexoPessoaEnum;
+    private String cpf;
+    private String cnpj;
+    private String razaoSocial;
+    private String nome;
     private String telefone;
     private String email;
     private String uf;

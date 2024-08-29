@@ -1,0 +1,1 @@
+insert into categoria_produto(id, codigo, descricao) values ('0317db03-41cd-4934-b5a5-c6c36e3e1494', 1, 'descrição 1');
