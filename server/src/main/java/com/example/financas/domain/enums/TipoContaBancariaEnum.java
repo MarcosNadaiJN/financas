@@ -1,6 +1,8 @@
 package com.example.financas.domain.enums;
 
-public enum TipoContaBancariaEnum {
+import com.example.financas.generic.enums.CodedEnum;
+
+public enum TipoContaBancariaEnum implements CodedEnum {
 
     CONTA_POUPANCA("Conta Poupança", "CP"),
     CONTA_CORRENTE("Conta Corrente", "CC");

@@ -1,6 +1,8 @@
 package com.example.financas.domain.enums;
 
-public enum UnidadeFederalEnum {
+import com.example.financas.generic.enums.CodedEnum;
+
+public enum UnidadeFederalEnum  implements CodedEnum {
 
     AC("Acre", "AC"),
     AL("Alagoas", "AL"),

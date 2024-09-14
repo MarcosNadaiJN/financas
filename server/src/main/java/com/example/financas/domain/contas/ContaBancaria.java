@@ -2,8 +2,10 @@ package com.example.financas.domain.contas;
 
 import com.example.financas.domain.dto.ContaBancariaDTO;
 import com.example.financas.domain.enums.TipoContaBancariaEnum;
+import com.example.financas.domain.enums.converters.TipoContaBancariaEnumConverter;
 import com.example.financas.domain.pessoa.Pessoa;
 import com.example.financas.generic.CrudEntity;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -39,6 +41,7 @@ public class ContaBancaria implements CrudEntity<UUID, ContaBancariaDTO> {
     private Pessoa banco;
 
     @NotNull
+    @Convert(converter = TipoContaBancariaEnumConverter.class)
     private TipoContaBancariaEnum tipo;
 
     @NotNull

@@ -5,9 +5,11 @@ import com.example.financas.domain.enums.CategoriaPessoaEnum;
 import com.example.financas.domain.enums.SexoPessoaEnum;
 import com.example.financas.domain.enums.TipoPessoaEnum;
 import com.example.financas.domain.enums.UnidadeFederalEnum;
+import com.example.financas.domain.enums.converters.CategoriaPessoaEnumConverter;
+import com.example.financas.domain.enums.converters.SexoPessoaEnumConverter;
 import com.example.financas.domain.enums.converters.TipoPessoaEnumConverter;
+import com.example.financas.domain.enums.converters.UnidadeFederalEnumConverter;
 import com.example.financas.generic.CrudEntity;
-import com.example.financas.generic.enums.CodedEnumConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -46,9 +48,11 @@ public class Pessoa implements CrudEntity<UUID, PessoaDTO> {
 
     @NotNull
     @Column(name = "categoria_pessoa")
+    @Convert(converter = CategoriaPessoaEnumConverter.class)
     private CategoriaPessoaEnum categoriaPessoa;
 
     @Column(name = "sexo_pessoa")
+    @Convert(converter = SexoPessoaEnumConverter.class)
     private SexoPessoaEnum sexoPessoaEnum;
 
     @CPF
@@ -68,6 +72,7 @@ public class Pessoa implements CrudEntity<UUID, PessoaDTO> {
     private String email;
 
     @NotNull
+    @Convert(converter = UnidadeFederalEnumConverter.class)
     private UnidadeFederalEnum uf;
 
     @NotNull

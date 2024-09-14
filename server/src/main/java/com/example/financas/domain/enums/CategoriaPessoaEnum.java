@@ -1,16 +1,18 @@
 package com.example.financas.domain.enums;
 
-public enum CategoriaPessoaEnum {
+import com.example.financas.generic.enums.CodedEnum;
 
-    BANCO("Banco", 1L),
-    FUNCIONARIO("Funcionário", 2L),
-    FORNECEDOR("Fornecedor", 3L),
-    CLIENTE("Cliente", 4L);
+public enum CategoriaPessoaEnum implements CodedEnum {
+
+    BANCO("Banco", "BC"),
+    FUNCIONARIO("Funcionário", "FU"),
+    FORNECEDOR("Fornecedor", "FO"),
+    CLIENTE("Cliente", "CL");
 
     private final String descricao;
-    private final Long codigo;
+    private final String codigo;
 
-    CategoriaPessoaEnum(String descricao, Long codigo) {
+    CategoriaPessoaEnum(String descricao, String codigo) {
         this.descricao = descricao;
         this.codigo = codigo;
     }
@@ -19,7 +21,7 @@ public enum CategoriaPessoaEnum {
         return descricao;
     }
 
-    public Long getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 }

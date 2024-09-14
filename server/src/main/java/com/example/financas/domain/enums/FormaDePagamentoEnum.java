@@ -1,18 +1,20 @@
 package com.example.financas.domain.enums;
 
-public enum FormaDePagamentoEnum {
+import com.example.financas.generic.enums.CodedEnum;
 
-    BOLETO("Boleto", 1),
-    CARTAO_CREDITO("Cartão de Credito", 2),
-    CARTAO_DEBITO("Cartão de Debito", 3),
-    PIX("PIX", 4),
-    TRANSFERENCIA("Transferência", 5),
-    CHEQUE("Cheque", 6);
+public enum FormaDePagamentoEnum implements CodedEnum {
+
+    BOLETO("Boleto", "BO"),
+    CARTAO_CREDITO("Cartão de Credito", "CC"),
+    CARTAO_DEBITO("Cartão de Debito", "CD"),
+    PIX("PIX", "PX"),
+    TRANSFERENCIA("Transferência", "TR"),
+    CHEQUE("Cheque", "CQ");
 
     private final String descricao;
-    private final Integer codigo;
+    private final String codigo;
 
-    FormaDePagamentoEnum(String descricao, Integer codigo) {
+    FormaDePagamentoEnum(String descricao, String codigo) {
         this.descricao = descricao;
         this.codigo = codigo;
     }
@@ -21,7 +23,7 @@ public enum FormaDePagamentoEnum {
         return descricao;
     }
 
-    public Integer getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 }

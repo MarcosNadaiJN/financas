@@ -1,6 +1,8 @@
 package com.example.financas.domain.enums;
 
-public enum SexoPessoaEnum {
+import com.example.financas.generic.enums.CodedEnum;
+
+public enum SexoPessoaEnum  implements CodedEnum {
 
     INEXISTENTE("Inexistente", "I"),
     MASCULINO("Masculino", "M"),

@@ -2,11 +2,14 @@ package com.example.financas.domain.movimentacao.patrimonial;
 
 import com.example.financas.domain.dto.VendaDTO;
 import com.example.financas.domain.enums.FormaDePagamentoEnum;
+import com.example.financas.domain.enums.converters.FormaDePagamentoEnumConverter;
 import com.example.financas.domain.movimentacao.financeira.ContaAReceber;
 import com.example.financas.domain.pessoa.Pessoa;
 import com.example.financas.domain.produto.ProdutoVenda;
 import com.example.financas.generic.CrudEntity;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Converter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -44,6 +47,7 @@ public class Venda implements CrudEntity<UUID, VendaDTO> {
 
     @NotNull
     @Column(name = "forma_de_pagamento")
+    @Convert(converter = FormaDePagamentoEnumConverter.class)
     private FormaDePagamentoEnum formaDePagamento;
 
     @NotNull
