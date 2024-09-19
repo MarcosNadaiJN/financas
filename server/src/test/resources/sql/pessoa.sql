@@ -16,9 +16,9 @@ insert into pessoa(
     numero)
 values (
     'd002ebd7-46bf-48f7-8685-5387cf164607',
-    'FISICA',
-    'CLIENTE',
-    'INEXISTENTE',
+    'PF',
+    'CL',
+    'I',
     '999.999.999-99',
     '99.999.999/9999-99',
     'razão social',

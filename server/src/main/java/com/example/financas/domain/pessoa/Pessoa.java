@@ -41,7 +41,6 @@ public class Pessoa implements CrudEntity<UUID, PessoaDTO> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @NotNull
     @Column(name = "tipo_pessoa")
     @Convert(converter = TipoPessoaEnumConverter.class)
     private TipoPessoaEnum tipoPessoa;

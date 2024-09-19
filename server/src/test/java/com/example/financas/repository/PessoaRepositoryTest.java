@@ -39,8 +39,8 @@ public class PessoaRepositoryTest {
         assertThat(pessoa.getCpf()).isEqualTo("999.999.999-99");
         assertThat(pessoa.getCnpj()).isEqualTo("99.999.999/9999-99");
         assertThat(pessoa.getRazaoSocial()).isEqualTo("razão social");
-        assertThat(pessoa.getNome()).isEmpty();
-        assertThat(pessoa.getTelefone()).isEqualTo("telefone");
+        assertThat(pessoa.getNome()).isEqualTo("nome fantasia");
+        assertThat(pessoa.getTelefone()).isEqualTo("44999999999");
         assertThat(pessoa.getEmail()).isEqualTo("email@email.com");
         assertThat(pessoa.getUf()).isEqualTo(UnidadeFederalEnum.PR);
         assertThat(pessoa.getCidade()).isEqualTo("cidade");
