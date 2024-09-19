@@ -31,3 +31,106 @@ values (
     'AVENIDA TESTE',
     12345
 );
+
+
+insert into pessoa(
+    id,
+    tipo_pessoa,
+    categoria_pessoa,
+    sexo_pessoa,
+    cpf,
+    cnpj,
+    razao_social,
+    nome,
+    telefone,
+    email,
+    uf,
+    cidade,
+    cep,
+    logradouro,
+    numero)
+values (
+    'aeaa421f-9e27-4835-ae51-61d5b9e980ad',
+    'PJ',
+    'FO',
+    'I',
+    '999.999.999-99',
+    '99.999.999/9999-99',
+    'razão social 2',
+    'nome fantasia 2',
+    '44999999999',
+    'email2@email.com',
+    'PR',
+    'cidade',
+    '87600-000',
+    'AVENIDA TESTE',
+    12345
+);
+
+insert into pessoa(
+    id,
+    tipo_pessoa,
+    categoria_pessoa,
+    sexo_pessoa,
+    cpf,
+    cnpj,
+    razao_social,
+    nome,
+    telefone,
+    email,
+    uf,
+    cidade,
+    cep,
+    logradouro,
+    numero)
+values (
+    '63cf235c-b912-4efb-a582-25410139df68',
+    'PJ',
+    'FO',
+    'I',
+    '999.999.999-99',
+    '99.999.999/9999-99',
+    'razão social 3',
+    'nome fantasia 3',
+    '44999999999',
+    'email3@email.com',
+    'PR',
+    'cidade',
+    '87600-000',
+    'AVENIDA TESTE',
+    12345
+);
+
+insert into pessoa(
+    id,
+    tipo_pessoa,
+    categoria_pessoa,
+    sexo_pessoa,
+    cpf,
+    cnpj,
+    razao_social,
+    nome,
+    telefone,
+    email,
+    uf,
+    cidade,
+    cep,
+    logradouro,
+    numero)
+values (
+    'b6b22422-a511-4bba-a0bb-69df5d91dbf1',
+    'PJ',
+    'FO',
+    'I',
+    '999.999.999-99',
+    '99.999.999/9999-99',
+    'razão social 4',
+    'nome fantasia 4',
+    '44999999999',
+    'email4@email.com',
+    'PR',
+    'cidade',
+    '87600-000',
+    'AVENIDA TESTE',
+    12345
+);
