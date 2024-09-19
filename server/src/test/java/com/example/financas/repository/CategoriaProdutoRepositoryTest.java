@@ -12,7 +12,7 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-@Sql(scripts = {"/sql/categoriaProdutoInsert.sql"})
+@Sql(scripts = {"/sql/categoria_produto.sql"})
 public class CategoriaProdutoRepositoryTest {
 
     @Autowired
