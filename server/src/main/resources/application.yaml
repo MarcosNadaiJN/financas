@@ -2,15 +2,17 @@ server:
   port: 8181
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:test_db
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
-  h2:
-    console.enabled: true
-  jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
-    hibernate.ddl-auto: update
   liquibase:
     changeLog: classpath:/db/master.xml
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/localdb
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update  # Ajusta automaticamente as tabelas (ou use 'validate' se já estiver criado)
+    show-sql: true  # Exibe as queries no console

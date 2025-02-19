@@ -63,7 +63,6 @@ public class ContaAReceber implements CrudEntity<UUID, ContaAReceberDTO> {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venda_origem_id")
     private Venda venda;
-
     @Override
     public ContaAReceberDTO toDTO() {
 

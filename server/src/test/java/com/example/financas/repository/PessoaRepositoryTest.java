@@ -6,15 +6,10 @@ import com.example.financas.domain.enums.TipoPessoaEnum;
 import com.example.financas.domain.enums.UnidadeFederalEnum;
 import com.example.financas.domain.pessoa.Pessoa;
 import com.example.financas.domain.produto.CategoriaProduto;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.jdbc.Sql;
-
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @Sql(scripts = {"/sql/pessoa.sql"})
