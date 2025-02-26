@@ -25,10 +25,10 @@ public class CrudJPAService<T extends CrudEntity<K, D>, K extends Serializable, 
     }
 
     public D update(K id, T entity) {
-        if (this.repository.existsById(id)) {
-            this.repository.saveAndFlush(entity);
+        if (!this.repository.existsById(id)) {
+            throw new RegistroNaoEncontradoException("Registro não encontrado.");
         }
-        throw new RegistroNaoEncontradoException("Registro não encontrado.");
+        return this.repository.saveAndFlush(entity).toDTO();
     }
 
     public void delete(K id) {
